@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script >
+
+
+	
+function computerplay () { 
+var c = Math.floor((Math.random() * 3) + 1);
+
+if (c==1) {c="rock";}
+	else if (c==2) {c="paper";}
+	 else {c="scissors" ;};
+
+return c; }
+
+let p = prompt('choose: Rock Paper or scissors');
+
+if (playercheck(p))  {
+  alert( 'you choose '+p );
+} else {
+  alert ("Wrong word , reload the page" );
+}
+
+c=computerplay ();
+
+alert ("The canaima chooses " + c );
+
+if ((p=="rock" && c=="paper")||(p=="scissors" && c=="rock") || (p=="paper" && c=="scissors")) {
+ alert ("You loose recharge the page to play aain" ); }
+  else if ((c=="rock" && p=="paper")||(c=="scissors" && p=="rock") || (c=="paper" && p=="scissors")) {  alert ("You win recharge the page to play again" );}
+     else { alert("tie recharge the page to play again")}
+
+function playercheck(p){
+	 p==p.toLowerCase();
+  if (p=="rock" || p=="paper" || p=="scissors") {
+    return true; }  else {return false;}
+
+}
+
+
+function playerplay () {
+
+    p==p.toLowerCase();
+
+  if (p=="rock" || p=="paper" || p=="scissors") {
+    return p; } 
+    else {
+     alert ("Wrong word , reload the page");
+     return;}
+}
+
+
+
+
+</script>
+
+</body>
+</html>
