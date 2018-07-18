@@ -1,0 +1,128 @@
+ 
+html {font-size: 10px;
+background: url(https://static.vecteezy.com/system/resources/previews/000/139/911/original/vector-grey-gradient-abstract-background.jpg);
+background-size: cover;}
+
+ body,html{
+ 	margin: 0;
+ 	padding: 0;
+ 	font-family: sans-serif;
+ 	margin-bottom: 120px;
+	margin-left: 12px;
+	margin-right: 12px;
+
+
+ }
+
+ .counter {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: white;
+  text-shadow: 1px 1px #000;
+  font-size: 14px;
+   }
+
+  .PCbtn { display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+  
+.rockpc ,.paperpc,.scissorspc {
+	
+  justify-content: center;
+	border: 2px solid white;
+  border-radius: 20px;
+  background: rgba(168, 168, 168, 0.4);
+  margin-right: 10px ;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 124px;
+  width: 124px;
+  transition: all .07s ease;
+}
+
+.rock ,.paper,.scissors {
+	
+  justify-content: center;
+	border: 2px solid white;
+  border-radius: 20px;
+  background: rgba(168, 168, 168, 0.4);
+  margin-right: 10px ;
+  padding-left: 10px;
+  padding-right: 10px;
+ height: 126px;
+  width: 145px;
+  	transition: all .07s ease;
+}
+
+button:hover {
+text-shadow: 0 0 .5rem black;
+transform: scale(1.1);
+  border-color: #fffcfc;;
+  box-shadow: 0 0 10px #fffcfc;;
+}
+
+
+  .Pbtn {
+  	margin-top: 30px;
+  	display: flex;
+  flex: 1;
+  	align-items: center;
+  justify-content: center;
+  flex-direction: row;  
+
+  }
+
+  .points { 
+  	position: relative;
+  	 left: 34%;
+      margin-right: -66%;
+      color: white;
+      text-shadow: 2px 1px #000;
+      font-size: 13px;
+  	
+   }
+
+.score { 
+display: inline-block;
+	
+   }
+
+
+ #plapo { color: #15e0bc; }
+
+ #pcpo {color: #f00909;}
+
+ .pchoice,.pchoice:hover{ 
+  transform: scale(1.3);
+  border-color: #15e0bc;
+  box-shadow: 0 0 1rem #15e0bc;}
+
+.pcchoice{
+	transform: scale(1.3);
+  border-color: #f00909;
+  box-shadow: 0 0 1rem #f00909;
+}
+
+#final1{  
+
+	color: white;
+  text-shadow: 3px 3px #000;
+  font-size: 50px;
+    position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);}
+
+#final2{  
+    position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%); }

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock,Paper,Scissors</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+	<div id="mark">
+		<div class="counter">
+			<h1>Round number: </h1>
+			<h1 id="ronda">0/5</h1>
+		</div >
+	
+      <h1 id="final1"></h1>
+      <h1 id="final2"></h1>
+	
+		<div class="points" >
+			<h2 class="score">Player points: </h2>
+			<h2 id ="plapo" class="score">0</h2>
+			<h2 class="score">  / </h2>
+			<h2 class="score">PC points: </h2>
+			<h2  id ="pcpo" class="score">0</h2>
+		</div>
+	</div>
+	
+
+	<div class=PCbtn>
+    	<p class="rockpc"><img src="Resources/rock.png" width="120" height="120"></p>
+    	<p class="paperpc"><img src="Resources/paper.png" width="120" height="120"></p>
+    	<p class="scissorspc"><img src="Resources/scissors.png" width="120" height="120"></p>
+    </div>
+
+
+	<div class=Pbtn>
+    	<button class="rock"><img src="Resources/rock.png" width="120" height="120"></button>
+    	<button class="paper"><img src="Resources/paper.png" width="120" height="120"></button>
+    	<button class="scissors"><img src="Resources/scissors.png" width="120" height="120"></button>
+    </div>
+
+    
+    
+
+<script >
+  let btn1 = document.querySelector('.rock');
+  let btn2 = document.querySelector('.paper');
+  let btn3 = document.querySelector('.scissors');
+  let pcn1 =document.querySelector('.rockpc');
+  let pcn2 =document.querySelector('.paperpc');
+  let pcn3 =document.querySelector('.scissorspc');
+  let plapo=document.querySelector("#plapo");
+  let pcpo=document.querySelector("#pcpo");
+  let ronda=document.querySelector("#ronda")
+  let pp=0;
+  let pcp=0;
+  let PCbtn=document.querySelector(".PCbtn");
+  let Pbtn=document.querySelector(".Pbtn");
+  let points=document.querySelector(".points");
+  let counter=document.querySelector(".counter");
+  let mark=document.querySelector("#mark");
+  let final1=document.querySelector("#final1");
+  let final2=document.querySelector("#final2")
+
+
+function computerplay () { 
+var c = Math.floor((Math.random() * 3) + 1);
+
+if (c==1) {c="scissors";}
+	else if (c==2) {c="paper";}
+	 else {c="rock" ;}
+return c; }
+
+let point="";
+
+let i=1;
+
+  
+
+
+  btn1.addEventListener("click",function(){ 
+
+  	   if (computerplay()=="rock"){
+  	   	btn1.classList.add("pchoice");
+  	   	setTimeout(function(){pcn1.classList.add("pcchoice");},1000);
+  	   	setTimeout(function(){alert("Rock -Rock = 0 points");},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  		}
+  	   else if (computerplay()=="paper"){
+  	   	btn1.classList.add("pchoice");
+  	   	setTimeout(function(){pcn2.classList.add("pcchoice");},1000);
+  	   	pcp++;
+  	   	setTimeout(function(){alert("Paper cleans the rock?!! PC wins one point..");},1500);
+  	   	setTimeout(function(){pcpo.textContent=`${pcp}`;},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  	   }
+  	   
+  	    else if (computerplay()=="scissors"){
+  	    btn1.classList.add("pchoice");
+  	   	setTimeout(function(){pcn3.classList.add("pcchoice");},1000);
+  	   	pp++;
+  	   	setTimeout(function(){alert("Rock SMASH!! You won one point!!");},1500);
+  	   	setTimeout(function(){plapo.textContent=`${pp}`;},1500);
+  		setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  	   }
+
+  	    setTimeout(function(){
+  	    btn1.classList.remove("pchoice");
+  	    pcn1.classList.remove("pcchoice");
+  	    pcn2.classList.remove("pcchoice");
+  	    pcn3.classList.remove("pcchoice");},2000);
+
+        
+        if (pp>pcp){point="YOU WON!!!"}
+        else if (pcp>pp){point="YOU LOSE!!!"}
+         else if (pcp==pp){point="TIE!!"}
+  	    
+
+      
+	if (i==5){ setTimeout(function(){
+        PCbtn.removeChild(pcn1);
+        PCbtn.removeChild(pcn2);
+        PCbtn.removeChild(pcn3);
+        Pbtn.removeChild(btn1);
+        Pbtn.removeChild(btn2);
+        Pbtn.removeChild(btn3);
+        mark.removeChild(points);
+        mark.removeChild(counter);
+        final1.textContent=`${point}`;
+        final2.textContent="Reload the page to play again"
+        },2000);}
+
+
+
+  })
+
+btn2.addEventListener("click",function(){ 
+  	   if (computerplay()=="paper"){
+  	   	 btn2.classList.add("pchoice");
+  	   	setTimeout(function(){pcn2.classList.add("pcchoice");},1000);
+  	   	setTimeout(function(){alert("nobodylikes too much paper = 0 points");},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  		}
+  	   else if (computerplay()=="scissors"){
+  	   	 btn2.classList.add("pchoice");
+  	   	setTimeout(function(){pcn3.classList.add("pcchoice");},1000);
+  	   	pcp++;
+  	   	setTimeout(function(){alert("Scissors cut the toilet paper!! Pc wins one point");},1500);
+  	   	setTimeout(function(){pcpo.textContent=`${pcp}`;},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  	   }
+  	   
+  	    else if (computerplay()=="rock"){
+  	     btn2.classList.add("pchoice");
+  	   	setTimeout(function(){pcn1.classList.add("pcchoice");},1000);
+  	   	pp++;
+  	   	setTimeout(function(){alert("Paper somehow defeats rock!! You won one point!!");},1500);
+  	   	setTimeout(function(){plapo.textContent=`${pp}`;},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  	   }
+
+  	    setTimeout(function(){
+  	    btn2.classList.remove("pchoice");
+  	    pcn1.classList.remove("pcchoice");
+  	    pcn2.classList.remove("pcchoice");
+  	    pcn3.classList.remove("pcchoice");},2000);
+
+  	    if (pp>pcp){point="YOU WON!!!"}
+        else if (pcp>pp){point="YOU LOSE!!!"}
+         else if (pcp==pp){point="TIE!!"}
+
+      if (i==5){ setTimeout(function(){
+        PCbtn.removeChild(pcn1);
+        PCbtn.removeChild(pcn2);
+        PCbtn.removeChild(pcn3);
+        Pbtn.removeChild(btn1);
+        Pbtn.removeChild(btn2);
+        Pbtn.removeChild(btn3);
+        mark.removeChild(points);
+        mark.removeChild(counter);
+        final1.textContent=`${point}`;
+        final2.textContent="Reload the page to play again"
+        },2000);}
+  	    
+
+  	   
+  })
+
+btn3.addEventListener("click",function(){ 
+  	   if (computerplay()=="scissors"){
+  	   	 btn3.classList.add("pchoice");
+  	   	setTimeout(function(){pcn3.classList.add("pcchoice");},1000);
+  	   	setTimeout(function(){alert("you can't cut a scissor = 0 points");},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  		}
+  	   else if (computerplay()=="rock"){
+  	   	 btn3.classList.add("pchoice");
+  	   	setTimeout(function(){pcn1.classList.add("pcchoice");},1000);
+  	   	pcp++;
+  	   	setTimeout(function(){alert("You can't cut a rock! Pc wins one point");},1500);
+  	   	setTimeout(function(){pcpo.textContent=`${pcp}`;},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  	   }
+  	   
+  	    else if (computerplay()=="paper"){
+  	     btn3.classList.add("pchoice");
+  	   	setTimeout(function(){pcn2.classList.add("pcchoice");},1000);
+  	   	pp++;
+  	   	setTimeout(function(){alert("you can cut paper wow!! You won one point!!");},1500);
+  	   	setTimeout(function(){plapo.textContent=`${pp}`;},1500);
+  	   	setTimeout(function(){i++},1500);
+        ronda.textContent=`${i}/5`;
+
+  	   }
+
+  	    setTimeout(function(){
+  	    btn3.classList.remove("pchoice");
+  	    pcn1.classList.remove("pcchoice");
+  	    pcn2.classList.remove("pcchoice");
+  	    pcn3.classList.remove("pcchoice");},2000);
+
+  	    if (pp>pcp){point="YOU WON!!!"}
+        else if (pcp>pp){point="YOU LOSE!!!"}
+         else if (pcp==pp){point="TIE!!"}
+  	    
+  	    if (i==5){ setTimeout(function(){
+        PCbtn.removeChild(pcn1);
+        PCbtn.removeChild(pcn2);
+        PCbtn.removeChild(pcn3);
+        Pbtn.removeChild(btn1);
+        Pbtn.removeChild(btn2);
+        Pbtn.removeChild(btn3);
+        mark.removeChild(points);
+        mark.removeChild(counter);
+        final1.textContent=`${point}`;
+        final2.textContent="Reload the page to play again"
+        },2000);}
+  		   
+  })
+
+
+</script>
+
+</body>
+</html>

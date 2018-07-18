@@ -9,6 +9,7 @@
 <script >
 
 
+
 	
 function computerplay () { 
 var c = Math.floor((Math.random() * 3) + 1);
@@ -19,22 +20,40 @@ if (c==1) {c="rock";}
 
 return c; }
 
-let p = prompt('choose: Rock Paper or scissors');
+let i=1; let pp=0; let pcp=0;let word=true;
 
-if (playercheck(p))  {
-  alert( 'you choose '+p );
-} else {
-  alert ("Wrong word , reload the page" );
+do {
+
+  let p = prompt(`round "${i}" choose: Rock Paper or scissors`); 
+
+  if (playercheck(p))  {
+    alert( 'you choose '+p );
+  } else {
+
+    word=false; alert ("Wrong word, reload the page" );
+    break;
+  }
+
+  c=computerplay ();
+
+  alert ("The canaima chooses " + c );
+
+  if ((p=="rock" && c=="paper")||(p=="scissors" && c=="rock") || (p=="paper" && c=="scissors")) {
+  pcp++; alert (`PC: "${pcp}" Player: "${pp}"`); }
+    else if ((c=="rock" && p=="paper")||(c=="scissors" && p=="rock") || (c=="paper" && p=="scissors")) { pp++; alert (`PC: "${pcp}" Player: "${pp}"` );}
+      else { alert(`PC: "${pcp}" Player: "${pp}"`)}
+
+i++;
+
+} while (i<=5);
+
+if (word==true){
+  if (pcp>pp) {alert("you loose!!!")}
+  else if (pp>pcp){alert("you won")}
+  else if (pp==pcp){alert("tie")}
 }
 
-c=computerplay ();
-
-alert ("The canaima chooses " + c );
-
-if ((p=="rock" && c=="paper")||(p=="scissors" && c=="rock") || (p=="paper" && c=="scissors")) {
- alert ("You loose! .i. recharge the page to play aain" ); }
-  else if ((c=="rock" && p=="paper")||(c=="scissors" && p=="rock") || (c=="paper" && p=="scissors")) {  alert ("You won! :D recharge the page to play again" );}
-     else { alert("tie! :| recharge the page to play again")}
+ 
 
 function playercheck(p){
 	 p==p.toLowerCase();
@@ -56,6 +75,26 @@ function playerplay () {
 }
 
 
+
+var contacts = ['Chris:2232322', 'Sarah:3453456', 'Bill:7654322', 'Mary:9998769', 'Dianne:9384975'];
+var para = document.querySelector('p');
+var input = document.querySelector('input');
+var btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+  var searchName = input.value;
+  input.value = '';
+  input.focus();
+  for (var i = 0; i < contacts.length; i++) {
+    var splitContact = contacts[i].split(':');
+    if (splitContact[0] === searchName) {
+      para.textContent = splitContact[0] + '\'s number is ' + splitContact[1] + '.';
+      break;
+    } else {
+      para.textContent = 'Contact not found.';
+    }
+  }
+});
 
 
 </script>
